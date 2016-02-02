@@ -71,9 +71,11 @@
             // Older versions of Magento are completely lacking the
             // currentStep variable, so we're re-implementing some of
             // that functionality here.
-            this.currentStep = section;
-
-            this.gotoSectionparent(section);
+            if (typeof this.currentStep === 'undefined') {
+                this.currentStep = section;
+            }
+            
+            this.gotoSectionparent(section, reloadProgressBlock);
         };
     </script>
 
